@@ -68,12 +68,12 @@ The project demonstrates advanced SQL skills by solving practical e-commerce cha
 
 Here are some of the queries I developed:
 
-```sql
 
 ### 1. Top-Selling Products
 
 Identify the top 10 products by total sales value.
 
+```sql
 SELECT
     p.product_name, 
     SUM(oi.quantity * oi.price_per_unit) AS total_sales
@@ -82,11 +82,13 @@ JOIN products p ON oi.product_id = p.product_id
 GROUP BY p.product_name
 ORDER BY total_sales DESC
 LIMIT 10;
+```
 
 ### 2. Monthly Sales Trends
 
 Analyze sales trends grouped by month and compare current vs. previous months.
 
+```sql
 SELECT 
 	year, month, total_sale as current_month_sale,
 	LAG(total_sale, 1) OVER(ORDER BY year, month) as last_month_sale
@@ -105,12 +107,13 @@ WHERE o.order_date >= CURRENT_DATE - INTERVAL '1 year'
 GROUP BY 1, 2
 ORDER BY year, month
 ) as t1
-
+```
 
 ### 3. Customer Lifetime Value (CLTV)
 
 Compute CLTV for each customer and rank them based on total spend.
 
+```sql
 SELECT 
 	c.customer_id,
 	CONCAT(c.first_name, ' ',  c.last_name) as full_name,
@@ -122,11 +125,13 @@ ON c.customer_id = o.customer_id
 JOIN order_items oi
 ON oi.order_id = o.order_id
 GROUP BY 1, 2
+```
 
 ### 4. Shipping Delays
 
 Identify orders with significant shipping delays.
 
+```sql
 SELECT 
 	c.*, o.*, s.shipping_providers,
 s.shipping_date - o.order_date as days_took_to_ship
@@ -136,18 +141,19 @@ ON c.customer_id = o.customer_id
 JOIN shippings s
 ON o.order_id = s.order_id
 WHERE s.shipping_date - o.order_date > 3
+```
 
 ### 5. Inventory Stock Alerts
 
 Flag products with critically low stock levels.
 
+```sql
 SELECT 
  i.inventory_id, p.product_name, i.stock as current_stock_left, 
  i.last_stock_date, i.warehouse_id
 FROM inventory i
 JOIN products p ON i.product_id = p.product_id
 WHERE i.stock < 10;
-
 ```
 
 ## Key Takeaways
