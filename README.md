@@ -32,12 +32,20 @@ This project showcases my SQL proficiency, emphasizing complex queries for busin
 Here’s a snippet of the schema design, showcasing relationships between tables such as customers, orders, products, and more. These relationships are key to enabling comprehensive analysis.
 
 --customers table
+
 CREATE TABLE customers(
+
 	customer_id int PRIMARY KEY,
+ 
 	first_name varchar(10),
+ 
 	last_name varchar(10),
+ 
 	state varchar(15),
+ 
 	address varchar(5) DEFAULT ('XXXX')
+
+ 
 );
 
 --orders table
