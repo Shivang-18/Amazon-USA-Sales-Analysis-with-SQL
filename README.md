@@ -5,7 +5,7 @@ In this project, I conducted an in-depth analysis of a dataset containing over 2
 
 This project showcases my SQL proficiency, emphasizing complex queries for business problems like revenue analysis, customer segmentation, and inventory management. Additionally, I performed data cleaning, managed null values, and created structured queries to address real-world challenges. An ERD diagram is included to illustrate the database schema and table relationships visually.
 
-![amz erd postgres](https://github.com/user-attachments/assets/31bb6c7a-79ef-4b22-95f1-418b2a0b2319)
+![amz erd postgres](https://github.com/user-attachments/assets/34acaeed-33e4-4205-93f5-aea431be97fe)
 
 
 ## Key Highlights
