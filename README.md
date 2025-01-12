@@ -34,18 +34,11 @@ Here’s a snippet of the schema design, showcasing relationships between tables
 --customers table
 
 CREATE TABLE customers(
-
 	customer_id int PRIMARY KEY,
- 
-	first_name varchar(10),
- 
-	last_name varchar(10),
- 
-	state varchar(15),
- 
-	address varchar(5) DEFAULT ('XXXX')
-
- 
+ 	first_name varchar(10),
+ 	last_name varchar(10),
+ 	state varchar(15),
+ 	address varchar(5) DEFAULT ('XXXX')
 );
 
 --orders table
