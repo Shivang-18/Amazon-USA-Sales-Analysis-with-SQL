@@ -31,27 +31,28 @@ This project showcases my SQL proficiency, emphasizing complex queries for busin
 
 Here’s a snippet of the schema design, showcasing relationships between tables such as customers, orders, products, and more. These relationships are key to enabling comprehensive analysis.
 
---customers table
 
-CREATE TABLE customers(
-	customer_id int PRIMARY KEY,
- 	first_name varchar(10),
- 	last_name varchar(10),
- 	state varchar(15),
- 	address varchar(5) DEFAULT ('XXXX')
+```sql
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    first_name VARCHAR(10),
+    last_name VARCHAR(10),
+    state VARCHAR(15),
+    address VARCHAR(5) DEFAULT ('XXXX')
 );
 
 --orders table
 CREATE TABLE orders(
+
 	order_id int PRIMARY KEY,
 	order_date DATE, 
 	customer_id int ,  --FK
 	seller_id int, --FK
 	order_status varchar(12),
 	FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
-  FOREIGN KEY (seller_id) REFERENCES sellers(seller_id)
+ 	FOREIGN KEY (seller_id) REFERENCES sellers(seller_id)
 );
-
+```
 
 -- Additional table definitions available in the full SQL script.
 
@@ -67,11 +68,13 @@ The project demonstrates advanced SQL skills by solving practical e-commerce cha
 
 Here are some of the queries I developed:
 
+```sql
+
 ### 1. Top-Selling Products
 
 Identify the top 10 products by total sales value.
 
-SELECT 
+SELECT
     p.product_name, 
     SUM(oi.quantity * oi.price_per_unit) AS total_sales
 FROM order_items oi
@@ -144,6 +147,8 @@ SELECT
 FROM inventory i
 JOIN products p ON i.product_id = p.product_id
 WHERE i.stock < 10;
+
+```
 
 ## Key Takeaways
 
